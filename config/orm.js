@@ -22,11 +22,18 @@ var orm = {
 			cb(result);
 		});
 
+	},
+	updateOne: function(table, condition, cb) {
+		var queryString = "UPDATE " + table + " SET devoured = 1 WHERE " + condition + ";";
+		console.log(queryString);
+		connection.query(queryString, function(err, result){
+			if (err) {
+				throw err;
+			}
+			cb(result);
+		});
+		
 	}
-	// updateOne: function(table, valToUpdate, cb) {
-	// 	// var queryString = "UPDATE " + table;
-	// 	// queryString += "SET "
-	// }
 };
 
 module.exports = orm;

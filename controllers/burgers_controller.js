@@ -24,6 +24,14 @@ router.post("/", function(req, res){
 	});
 });
 
+router.put("/:id", function(req, res){
+	var condition = "id = " + req.params.id;
+	console.log("condition is : " + condition);
+	burger.updateOne(condition, function(){
+		res.redirect("/");
+	});
+});
+
 module.exports = router;
 
 
